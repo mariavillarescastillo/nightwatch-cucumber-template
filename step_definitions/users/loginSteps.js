@@ -25,7 +25,8 @@ When(/^the user tries to log in$/, () => {
 Then(/^the password is required$/, () => {
     return LOGIN_PAGE
         .waitForPageLoaded()
-        .waitForPasswordInput();
+        .waitForPasswordInput()
+        .waitForPasswordRequired();
 });
 
 Then(/^an error message is shown$/, () => {
