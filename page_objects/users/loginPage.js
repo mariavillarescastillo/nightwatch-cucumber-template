@@ -7,10 +7,14 @@ const loginCmds = {
         return this
             .click('@loginButton');
     },
-    waitForEmailIntroduction: function(){
+    waitForEmailIntroduction: function(userEmail = this.api.globals.accounts.unregisteredUser){
         return this
-            .setValue('@email', this.api.globals.accounts.unregisteredUser)
+            .setValue('@email', `${userEmail}`)
             .click('@continueButton');
+    },
+    waitForPasswordInput: function(){
+        return this
+        .waitForElementVisible('@passwordInput', this.api.globals.timeouts.short);
     },
     waitForErrorMessage: function(){
         return this
@@ -32,6 +36,9 @@ module.exports = {
         },
         continueButton: {
             selector: '#continue',
+        },
+        passwordInput: {
+            selector: '#ap_password',
         },
         errorMessage: {
             selector: '//h4[contains(text(),"Ha surgido un problema")]',

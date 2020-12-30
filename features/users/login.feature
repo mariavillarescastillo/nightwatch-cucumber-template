@@ -3,10 +3,12 @@ Feature: Login
     I want to log in
     To navigate in the application
 
-    # Scenario: Password required for log in
-        # When a registered user tries to log in
-        # Then the password is required
+    Scenario: Password required for log in
+        Given a registered user
+        When the user tries to log in
+        Then the password is required
 
-    Scenario: Unregistered user
-        When an unregistered user tries to log in
+    Scenario: Unregistered user error
+        Given an unregistered user
+        When the user tries to log in
         Then an error message is shown

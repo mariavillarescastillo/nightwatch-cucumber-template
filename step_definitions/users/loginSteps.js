@@ -1,15 +1,31 @@
 const { client } = require('nightwatch-api');
-const { When, Then } = require('cucumber');
+const { Given, When, Then } = require('cucumber');
 const TXT = require('../../constants/pageTexts');
 const LOGIN_PAGE = client.page.users.loginPage();
 
-When(/^an unregistered user tries to log in$/, () => {
+var userEmail;
+
+Given(/^a registered user$/, () => {
+    return userEmail=client.globals.accounts.registeredUser;
+});
+
+Given(/^an unregistered user$/, () => {
+    return userEmail=client.globals.accounts.unregisteredUser;
+});
+
+When(/^the user tries to log in$/, () => {
     return LOGIN_PAGE
         .waitForPageLoaded()
         .navigate()
         .waitForLoginPage()
         .assert.title(TXT.LOGIN_PAGE_TITLE)
-        .waitForEmailIntroduction();
+        .waitForEmailIntroduction(userEmail);
+});
+
+Then(/^the password is required$/, () => {
+    return LOGIN_PAGE
+        .waitForPageLoaded()
+        .waitForPasswordInput();
 });
 
 Then(/^an error message is shown$/, () => {
@@ -17,8 +33,3 @@ Then(/^an error message is shown$/, () => {
         .waitForPageLoaded()
         .waitForErrorMessage();
 });
-/*
-Then(/^the password is required$/, () => {
-    // TO DO
-});
-*/
