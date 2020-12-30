@@ -3,6 +3,11 @@ Feature: Search
     I want to search a product
     To see the product details
 
-    Scenario: Search a product
-        When the user searches for a "rubber duck"
+    Scenario Outline: Search a product
+        When the user searches for a <searchText>
         Then the first product of the list is selectable
+
+        Examples:
+            | searchText  |
+            | rubber duck |
+            | potato      |
