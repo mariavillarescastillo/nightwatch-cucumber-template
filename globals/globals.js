@@ -11,8 +11,7 @@ module.exports = {
         home: 'https://www.amazon.es/',
     },
     accounts: {
-        default: {
-            user: 'test@quack.qa',
-        }
+        unregisteredUser: 'test@quack.qa',
+        registeredUser: 'test@test.test',
     }
 };
