@@ -5,7 +5,7 @@ module.exports = {
     globals_path: './globals/globals.js',
     test_settings: {
         default: {
-            launch_url: 'https://www.google.es/',
+            launch_url: 'https://www.amazon.es/',
             webdriver: {
                 start_process: true,
                 server_path: chromedriver.path,
