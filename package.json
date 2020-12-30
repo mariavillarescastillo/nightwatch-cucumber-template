@@ -4,27 +4,27 @@
     "description": "Nightwatch Cucumber Template",
     "main": "index.js",
     "scripts": {
-      "test": "mkdirp reports && cucumber-js --require cucumber.conf.js --require step_definitions -f node_modules/cucumber-pretty --format json:reports/cucumber_report.json",
-      "test:chrome": "cross-env NIGHTWATCH_ENV=chrome npm run test"
+        "test": "mkdirp reports && cucumber-js --require cucumber.conf.js --require step_definitions -f node_modules/cucumber-pretty --format json:reports/cucumber_report.json",
+        "test:chrome": "cross-env NIGHTWATCH_ENV=chrome npm run test"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/mariavillarescastillo/nightwatch-cucumber-template.git"
+        "type": "git",
+        "url": "git+https://github.com/mariavillarescastillo/nightwatch-cucumber-template.git"
     },
     "author": "Maria Villares",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/mariavillarescastillo/nightwatch-cucumber-template/issues"
+        "url": "https://github.com/mariavillarescastillo/nightwatch-cucumber-template/issues"
     },
     "homepage": "https://github.com/mariavillarescastillo/nightwatch-cucumber-template#readme",
     "devDependencies": {
-      "chromedriver": "87.0.4",
-      "cross-env": "7.0.3",
-      "cucumber": "6.0.5",
-      "cucumber-pretty": "6.0.0",
-      "mkdirp": "1.0.4",
-      "multiple-cucumber-html-reporter": "1.18.0",
-      "nightwatch": "1.5.1",
-      "nightwatch-api": "3.0.1"
+        "chromedriver": "87.0.4",
+        "cross-env": "7.0.3",
+        "cucumber": "6.0.5",
+        "cucumber-pretty": "6.0.0",
+        "mkdirp": "1.0.4",
+        "multiple-cucumber-html-reporter": "1.18.0",
+        "nightwatch": "1.5.1",
+        "nightwatch-api": "3.0.1"
     }
-  }
+}
