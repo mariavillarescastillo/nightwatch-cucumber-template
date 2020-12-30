@@ -8,3 +8,9 @@ When(/^the user searches for a "([^"]*)"$/, (searchText) => {
         .navigate()
         .waitForProductSearch(searchText);
 });
+
+Then(/^the first product of the list is selectable$/, () => {
+    return SEARCH_PAGE
+        .waitForPageLoaded()
+        .waitForFirstProductSelection();
+});

@@ -8,6 +8,10 @@ const searchCmds = {
             .setValue('@searchTextBox', searchText)
             .click('@searchButton');
     },
+    waitForFirstProductSelection: function(){
+        return this
+            .click('@firstProductLink');
+    },
 };
 
 module.exports = {
@@ -21,6 +25,10 @@ module.exports = {
         },
         searchButton: {
             selector: '#nav-search-submit-button',
+        },
+        firstProductLink: {
+            selector: '(//a[@class="a-link-normal a-text-normal"])[1]',
+            locateStrategy: 'xpath',
         },
     },
 };

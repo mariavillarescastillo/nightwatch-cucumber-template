@@ -5,4 +5,4 @@ Feature: Search
 
     Scenario: Search a product
         When the user searches for a "rubber duck"
-        # Then the first product of the list is selectable
+        Then the first product of the list is selectable
