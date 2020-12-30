@@ -1,0 +1,12 @@
+# Node
+node_modules
+
+# IDEs
+.vscode
+
+# Logs
+**/*.log
+
+# Temporary
+tests_output
+reports
