@@ -16,9 +16,14 @@ const loginCmds = {
         return this
         .waitForElementVisible('@passwordInput', this.api.globals.timeouts.short);
     },
+    waitForPasswordRequired: function(){
+        return this
+        .click('@signInButton')
+        .waitForElementVisible('@passwordAlertMessage', this.api.globals.timeouts.short);
+    },
     waitForErrorMessage: function(){
         return this
-        .waitForElementVisible('@errorMessage', this.api.globals.timeouts.short);
+        .waitForElementVisible('@userErrorMessage', this.api.globals.timeouts.short);
     },
 };
 
@@ -40,7 +45,14 @@ module.exports = {
         passwordInput: {
             selector: '#ap_password',
         },
-        errorMessage: {
+        signInButton: {
+            selector: '#signInSubmit',
+        },
+        passwordAlertMessage: {
+            selector: '//div[contains(text(),"Introduce tu contraseña")]',
+            locateStrategy: 'xpath',
+        },
+        userErrorMessage: {
             selector: '//h4[contains(text(),"Ha surgido un problema")]',
             locateStrategy: 'xpath',
         },

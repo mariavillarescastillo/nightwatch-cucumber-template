@@ -5,12 +5,14 @@ const LOGIN_PAGE = client.page.users.loginPage();
 
 var userEmail;
 
-Given(/^a registered user$/, () => {
-    return userEmail=client.globals.accounts.registeredUser;
-});
-
-Given(/^an unregistered user$/, () => {
-    return userEmail=client.globals.accounts.unregisteredUser;
+Given(/^a( |n un)registered user$/, (userType) => {
+    if (userType=="n un"){
+        // Unregistered user step
+        return userEmail=client.globals.accounts.unregisteredUser;
+    } else {
+        // Registered user step
+        return userEmail=client.globals.accounts.registeredUser;
+    }
 });
 
 When(/^the user tries to log in$/, () => {
@@ -25,7 +27,8 @@ When(/^the user tries to log in$/, () => {
 Then(/^the password is required$/, () => {
     return LOGIN_PAGE
         .waitForPageLoaded()
-        .waitForPasswordInput();
+        .waitForPasswordInput()
+        .waitForPasswordRequired();
 });
 
 Then(/^an error message is shown$/, () => {
